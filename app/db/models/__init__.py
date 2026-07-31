@@ -3,5 +3,7 @@
 
 # New models must be imported here in order
 # for them to be loaded into the system.
+from app.db.base import Base  # noqa
+from app.db.models.plants import Plant  # noqa
 
-from app.db.models import Plants
+models = [Plant]

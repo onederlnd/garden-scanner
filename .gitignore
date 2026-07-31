@@ -1,0 +1,41 @@
+# --- Secrets / environment ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# --- Virtual environments ---
+venv/
+.venv/
+env/
+
+# --- SQLite dev database ---
+*.db
+*.sqlite
+*.sqlite3
+
+# --- Alembic ---
+# migrations themselves SHOULD be committed — do not ignore alembic/versions/
+
+# --- IDE / editor ---
+.vscode/
+.idea/
+*.swp
+
+# --- OS cruft ---
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log
+
+# --- Generated cards/QR output (regenerable, often large) ---
+cards/output/

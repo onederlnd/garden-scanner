@@ -1,0 +1,118 @@
+from app.db.sessions import SessionLocal
+from app.db.models import Plant
+
+seed = [
+    {
+        "slug": "roma-tomato",
+        "common_name": "Roma Tomato",
+        "scientific_name": "Solanum lycopersicum 'Roma'",
+        "life_cycle": "Annual",
+        "light_needs": "Full sun",
+        "ph_min": 6.0,
+        "ph_max": 6.8,
+        "soil_type": "Loamy, well-drained, rich in organic matter",
+        "watering_frequency": "Deeply, 1-2 inches per week; consistent moisture",
+        "spacing": "24-36 inches apart",
+        "planting_season": "After last frost, once soil is warm",
+        "days_to_harvest": 75,
+        "common_pests": "Tomato hornworms, aphids, whiteflies",
+        "common_diseases": "Blossom end rot, early blight, fusarium wilt",
+        "notes": "Determinate variety, good for sauces and canning. Stake or cage for support.",
+    },
+    {
+        "slug": "strawberry",
+        "common_name": "Strawberry",
+        "scientific_name": "Fragaria × ananassa",
+        "life_cycle": "Perennial",
+        "light_needs": "Full sun",
+        "ph_min": 5.5,
+        "ph_max": 6.5,
+        "soil_type": "Sandy loam, well-drained",
+        "watering_frequency": "1-1.5 inches per week, avoid wetting foliage",
+        "spacing": "12-18 inches apart",
+        "planting_season": "Early spring or fall",
+        "days_to_harvest": 30,
+        "common_pests": "Slugs, aphids, spider mites",
+        "common_diseases": "Gray mold, powdery mildew, leaf spot",
+        "notes": "June-bearing varieties fruit once per season; everbearing types produce multiple flushes.",
+    },
+    {
+        "slug": "peppermint",
+        "common_name": "Peppermint",
+        "scientific_name": "Mentha × piperita",
+        "life_cycle": "Perennial",
+        "light_needs": "Full sun to partial shade",
+        "ph_min": 6.0,
+        "ph_max": 7.0,
+        "soil_type": "Moist, well-drained, rich soil",
+        "watering_frequency": "Keep consistently moist",
+        "spacing": "18-24 inches apart",
+        "planting_season": "Spring, after last frost",
+        "days_to_harvest": 60,
+        "common_pests": "Aphids, spider mites, flea beetles",
+        "common_diseases": "Rust, powdery mildew, verticillium wilt",
+        "notes": "Highly invasive spreader via runners — strongly recommend growing in a container or sunken barrier.",
+    },
+    {
+        "slug": "potato",
+        "common_name": "Potato",
+        "scientific_name": "Solanum tuberosum",
+        "life_cycle": "Annual (grown from tubers)",
+        "light_needs": "Full sun",
+        "ph_min": 4.8,
+        "ph_max": 6.5,
+        "soil_type": "Loose, well-drained, slightly acidic",
+        "watering_frequency": "1-2 inches per week, reduce as foliage yellows",
+        "spacing": "12 inches apart, rows 30-36 inches apart",
+        "planting_season": "Early spring, 2-4 weeks before last frost",
+        "days_to_harvest": 90,
+        "common_pests": "Colorado potato beetle, aphids, wireworms",
+        "common_diseases": "Late blight, scab, blackleg",
+        "notes": "Hill soil around stems as plants grow to prevent tuber greening.",
+    },
+    {
+        "slug": "broccoli",
+        "common_name": "Broccoli",
+        "scientific_name": "Brassica oleracea var. italica",
+        "life_cycle": "Annual (cool-season biennial grown as annual)",
+        "light_needs": "Full sun",
+        "ph_min": 6.0,
+        "ph_max": 7.0,
+        "soil_type": "Fertile, well-drained, rich in organic matter",
+        "watering_frequency": "1-1.5 inches per week, consistent moisture",
+        "spacing": "18-24 inches apart",
+        "planting_season": "Early spring or late summer for fall harvest",
+        "days_to_harvest": 65,
+        "common_pests": "Cabbage worms, aphids, flea beetles",
+        "common_diseases": "Clubroot, black rot, downy mildew",
+        "notes": "Prefers cool weather; bolts (flowers prematurely) in high heat.",
+    },
+    {
+        "slug": "blueberry",
+        "common_name": "Blueberry",
+        "scientific_name": "Vaccinium corymbosum",
+        "life_cycle": "Perennial (shrub)",
+        "light_needs": "Full sun",
+        "ph_min": 4.5,
+        "ph_max": 5.5,
+        "soil_type": "Acidic, well-drained, high organic matter",
+        "watering_frequency": "1-2 inches per week, shallow roots need consistent moisture",
+        "spacing": "4-6 feet apart",
+        "planting_season": "Early spring or fall",
+        "days_to_harvest": 730,
+        "common_pests": "Blueberry maggot, aphids, Japanese beetles",
+        "common_diseases": "Mummy berry, root rot, botrytis blight",
+        "notes": "Requires acidic soil — amend with sulfur or peat if needed. Plant 2+ varieties for cross-pollination.",
+    },
+]
+
+if __name__ == "__main__":
+    session = None
+    try:
+        session = SessionLocal()
+        for plant in seed:
+            session.add(Plant(**plant))
+        session.commit()
+    finally:
+        if session is not None:
+            session.close()

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}All Plants — Garden Tags{% endblock %}
+
+{% block content %}
+
+{% if plants %}
+<div class="directory-grid">
+  {% for plant in plants %}
+  <a class="directory-card" href="/plants/{{ plant.slug }}">
+    <div class="directory-card__body">
+      <p class="directory-card__name">{{ plant.common_name }}</p>
+      {% if plant.life_cycle or plant.light_needs %}
+      <p class="directory-card__meta">
+        {{ plant.life_cycle }}{% if plant.life_cycle and plant.light_needs %} · {% endif %}{{ plant.light_needs }}
+      </p>
+      {% endif %}
+    </div>
+  </a>
+  {% endfor %}
+</div>
+{% else %}
+<div class="empty-state">
+  <p class="empty-state__title">No plants yet</p>
+  <p>Once plants are added to the catalog, they'll show up here.</p>
+</div>
+{% endif %}
+
+{% endblock %}

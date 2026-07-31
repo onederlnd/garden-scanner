@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}{{ plant.common_name }} — Garden Tags{% endblock %}
+
+{% block content %}
+<article class="tag-card">
+  <div class="tag-card__body">
+
+    <div class="plant-header">
+      <h1 class="plant-header__name">{{ plant.common_name }}</h1>
+      {% if plant.scientific_name %}
+        <p class="plant-header__scientific">{{ plant.scientific_name }}</p>
+      {% endif %}
+    </div>
+
+    {% if plant.life_cycle or plant.light_needs or plant.days_to_harvest %}
+    <ul class="stat-chips">
+      {% if plant.life_cycle %}<li class="stat-chip">{{ plant.life_cycle }}</li>{% endif %}
+      {% if plant.light_needs %}<li class="stat-chip">{{ plant.light_needs }}</li>{% endif %}
+      {% if plant.days_to_harvest %}<li class="stat-chip">{{ plant.days_to_harvest }} days to harvest</li>{% endif %}
+    </ul>
+    {% endif %}
+
+    {% if plant.light_needs or plant.ph_min or plant.ph_max or plant.soil_type %}
+    <section class="plant-section">
+      <p class="plant-section__label">Growing Conditions</p>
+
+      {% if plant.light_needs %}
+      <div class="plant-field">
+        <span class="plant-field__label">Light</span>
+        <span class="plant-field__value">{{ plant.light_needs }}</span>
+      </div>
+      {% endif %}
+
+      {% if plant.ph_min or plant.ph_max %}
+      <div class="plant-field">
+        <span class="plant-field__label">Soil pH</span>
+        <span class="plant-field__value">
+          {%- if plant.ph_min and plant.ph_max -%}
+            {{ plant.ph_min }}–{{ plant.ph_max }}
+          {%- elif plant.ph_min -%}
+            {{ plant.ph_min }}+
+          {%- else -%}
+            up to {{ plant.ph_max }}
+          {%- endif -%}
+        </span>
+      </div>
+      {% endif %}
+
+      {% if plant.soil_type %}
+      <div class="plant-field">
+        <span class="plant-field__label">Soil type</span>
+        <span class="plant-field__value">{{ plant.soil_type }}</span>
+      </div>
+      {% endif %}
+    </section>
+    {% endif %}
+
+    {% if plant.watering_frequency or plant.spacing %}
+    <section class="plant-section">
+      <p class="plant-section__label">Care</p>
+
+      {% if plant.watering_frequency %}
+      <div class="plant-field">
+        <span class="plant-field__label">Watering</span>
+        <span class="plant-field__value">{{ plant.watering_frequency }}</span>
+      </div>
+      {% endif %}
+
+      {% if plant.spacing %}
+      <div class="plant-field">
+        <span class="plant-field__label">Spacing</span>
+        <span class="plant-field__value">{{ plant.spacing }}</span>
+      </div>
+      {% endif %}
+    </section>
+    {% endif %}
+
+    {% if plant.planting_season or plant.days_to_harvest %}
+    <section class="plant-section">
+      <p class="plant-section__label">Timing</p>
+
+      {% if plant.planting_season %}
+      <div class="plant-field">
+        <span class="plant-field__label">Planting season</span>
+        <span class="plant-field__value">{{ plant.planting_season }}</span>
+      </div>
+      {% endif %}
+
+      {% if plant.days_to_harvest %}
+      <div class="plant-field">
+        <span class="plant-field__label">Days to harvest</span>
+        <span class="plant-field__value">{{ plant.days_to_harvest }}</span>
+      </div>
+      {% endif %}
+    </section>
+    {% endif %}
+
+    {% if plant.common_pests or plant.common_diseases %}
+    <section class="plant-section">
+      <p class="plant-section__label">Known Issues</p>
+
+      {% if plant.common_pests %}
+      <div class="plant-field">
+        <span class="plant-field__label">Pests</span>
+        <span class="plant-field__value">{{ plant.common_pests }}</span>
+      </div>
+      {% endif %}
+
+      {% if plant.common_diseases %}
+      <div class="plant-field">
+        <span class="plant-field__label">Diseases</span>
+        <span class="plant-field__value">{{ plant.common_diseases }}</span>
+      </div>
+      {% endif %}
+    </section>
+    {% endif %}
+
+    {% if plant.notes %}
+    <section class="plant-section">
+      <p class="plant-section__label">Notes</p>
+      <p class="plant-notes">{{ plant.notes }}</p>
+    </section>
+    {% endif %}
+
+  </div>
+</article>
+{% endblock %}

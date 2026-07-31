@@ -2,7 +2,7 @@
 
 import uuid
 from sqlalchemy.orm import mapped_column, Mapped
-from db.base import Base
+from app.db.base import Base
 
 
 class Plant(Base):
@@ -26,3 +26,6 @@ class Plant(Base):
     common_pests: Mapped[str] = mapped_column(nullable=True)
     common_diseases: Mapped[str] = mapped_column(nullable=True)
     notes: Mapped[str] = mapped_column(nullable=True)
+
+    def __repr__(self):
+        return f"<Plant {self.slug}>"
