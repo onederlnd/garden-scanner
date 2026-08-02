@@ -43,16 +43,16 @@
 
 - [x] Decide seeding method (script vs. fixtures file)
 - [x] Pick 4–5 plants with varied care needs
-- [ ] Fill in every field for each seeded plant (placeholders only so far — real data comes later via enrichment agent)
+- [x] Fill in every field for each seeded plant (real care data written for all six)
 - [x] Decide if seed script is re-runnable or one-time
 
 ## Phase 2 — Routes
 
-### `routes/plants/schemas.py`
+### `routes/plants/schema.py`
 
 - [x] `PlantOut` — all fields, `Optional` for nullable ones, `from_attributes=True` config
 - [x] `PlantCreate` — same as `PlantOut` minus `id`
-- [x] `PlantUpdate` — decide if all fields optional (partial update) or same shape as `PlantCreate`
+- [x] `PlantUpdate` — partial update, all fields optional with `= None` defaults
 
 ### `routes/plants/router.py`
 
@@ -73,7 +73,7 @@
 ### `main.py`
 
 - [x] Instantiate FastAPI app
-- [x] Decide: keep `create_all()` as dev convenience, or Alembic-only
+- [x] Decide: keep `create_all()` as dev convenience, or Alembic-only (Alembic-only)
 - [x] Loop the routes registry, `include_router()` each
 - [x] Run dev server, confirm both routes return seeded data as JSON
 
@@ -98,7 +98,17 @@
 - [x] Pass `request` + plant data as context
 - [x] Test rendering on an actual mobile viewport
 
+### `app/templating.py` (shared Jinja2Templates instance)
+
+- [x] Create standalone file so both `main.py` (static mount) and `router.py` (rendering) can share one instance without circular imports
+
 ## Phase 4 — Admin / Write Path
+
+### `app/resources.py` (single resource registry)
+
+- [x] Build one list of dicts — `model`, `out_schema`, `create_schema`, `update_schema`, `url_path` — as the single source of truth per resource
+- [x] `url_path` derived from `model.__tablename__` rather than typed manually
+- [x] Confirm this stays a "top layer" file — imports from `db.models` and `routes.plants.schema`, but nothing imports back from it (avoids circular imports)
 
 ### `routes/crud_factory.py`
 
@@ -106,39 +116,47 @@
 - [x] Decide response/request shape the factory expects (matching each resource's `Out`/`Create`/`Update` schemas)
 - [x] Keep it generic — no `Plant`-specific logic inside the factory itself
 
+### `routes/admin_auth.py`
+
+- [x] Shared-secret header dependency (`require_admin_key`), reading `ADMIN_KEY` from `.env`
+- [x] Kept in its own file so `crud_factory.py` can import it without a circular dependency on `admin.py`
+
 ### `routes/admin.py`
 
-- [x] Call the factory for `Plant` to register its CRUD routes
+- [x] Loop `resources` (from `app/resources.py`) instead of a locally-defined registry
+- [x] Call the factory per resource to register its CRUD routes
 - [x] Confirm list/get/create/update/delete all work against the seeded data
-- [x] Note: new models get admin CRUD for free by calling the factory again — no new hand-written routes needed
+- [x] Note: new models get admin CRUD for free by adding one entry to `resources.py` — no new hand-written routes needed
 
 ### Validation
 
 - [x] Required-field checks (`slug`, `common_name`)
 - [x] Slug uniqueness check on create/edit
-- [x] Decide slug generation: manual vs. auto-from-name - auto from name
-- [x] Decide if admin routes need basic protection
+- [x] Decide slug generation: manual vs. auto-from-name (auto-generated from `common_name` — not yet implemented in `create`, since `slug` is still required on `PlantCreate`)
+- [x] Decide if admin routes need basic protection (shared-secret header via `require_admin_key`, applied to every `CrudFactory` router)
 
 ## Phase 5 — QR + Cards
 
 ### `cards/generate_qr.py`
 
-- [ ] Decide base URL (dev vs. eventual production — baked into every printed code)
-- [ ] Build QR payload per plant (`base_url + /plant/ + slug`)
-- [ ] Decide output naming/folder convention
+- [x] Decide base URL — local network IP for now, stored as `BASE_URL` in `.env` (swap to production domain later)
+- [x] Decide output naming/folder convention — `cards/output/{url_path}/{slug}.png`, namespaced by resource to avoid collisions
+- [x] Loop `resources` (not hardcoded to `Plant`) so future resources with a `slug` get QR generation for free
+- [x] Build QR payload per row (`base_url + / + url_path + / + slug`)
+- [x] Write the actual generation/save logic (`qrcode.make(...)`, error correction level, box size/border for print legibility)
 
 ### `cards/generate_card.py`
 
-- [ ] Decide physical card size/format
-- [ ] Sketch layout (QR placement, name text, icon/border)
-- [ ] Decide font/sizing for print legibility
-- [ ] Decide single-card-per-file vs. batched print sheet/PDF
+- [x] Decide physical card size/format (stake/tag size, e.g. 3"×2", adjustable later)
+- [x] Sketch layout (QR placement, name text, icon/border)
+- [x] Decide font/sizing for print legibility
+- [x] Decide single-card-per-file vs. batched print sheet/PDF
 
 ### Batch generate + real-world test
 
-- [ ] Run card generation over seeded plants
-- [ ] Scan a real card with a phone (may need network-accessible dev server)
-- [ ] Confirm scan → correct detail page end to end
+- [x] Run card generation over seeded plants
+- [x] Scan a real card with a phone (same wifi network as dev server, using `BASE_URL`)
+- [x] Confirm scan → correct detail page end to end
 
 ## Phase 6 — Polish for MVP
 
@@ -163,9 +181,14 @@
 
 - [ ] Pick app hosting
 - [ ] Pick database hosting (managed Postgres recommended)
-- [ ] Finalize production domain before first real print run
+- [ ] Finalize production domain before first real print run (replaces local `BASE_URL` — every printed QR code depends on this being final)
+
+## Repo / Tooling
+
+- [x] `.gitignore` — secrets, venv, SQLite dev DB, IDE/OS cruft, generated card output; migrations explicitly NOT ignored
+- [x] `ship.sh` — commit + push helper (add all, prompt for message, commit, push)
+- [ ] `.env.example` — same keys as `.env` with placeholder values, safe to commit, documents required env vars for anyone else touching the repo
 
 ## Parked (post-MVP)
 
 Instance mode, agents (catalog enrichment agent will fill in the placeholder seed data), PWA support — held until scan → accurate info works end to end.
-
