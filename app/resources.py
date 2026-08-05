@@ -1,5 +1,5 @@
 from app.db.models.plants import Plant
-from app.routes.plants.schema import PlantOut, PlantCreate, PlantUpdate
+from app.schemas.plants import PlantOut, PlantCreate, PlantUpdate
 
 resources = [
     {
@@ -8,5 +8,6 @@ resources = [
         "create_schema": PlantCreate,
         "update_schema": PlantUpdate,
         "url_path": Plant.__tablename__,
+        "label_field": "common_name",
     }
 ]

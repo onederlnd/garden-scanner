@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.db.sessions import get_db
+from app.db.session import get_db
 from app.routes.admin_auth import require_admin_key
 
 

@@ -7,7 +7,7 @@ from alembic import context
 
 # Platform specific imports
 from app.db.models import Base
-from app.db.sessions import database_url
+from app.db.session import database_url
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

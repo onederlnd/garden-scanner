@@ -2,7 +2,7 @@
 import qrcode
 from qrcode.constants import ERROR_CORRECT_H
 from pathlib import Path
-from app.db.sessions import SessionLocal
+from app.db.session import SessionLocal
 from app.config import BASE_URL, settings
 from app.resources import resources
 

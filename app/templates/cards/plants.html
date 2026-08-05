@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  @page { size: 3in 2in; margin: 0; }
+  body {
+    margin: 0;
+    width: 3in;
+    height: 2in;
+    font-family: 'Georgia', serif;
+    background: #f7f3ec;
+    border: 2px solid #4a6741;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    padding: 0.15in 0.25in;
+  }
+  .qr-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .qr-wrap {
+    width: 1in;
+    height: 1in;
+    background: white;
+    padding: 0.05in;
+    border: 1px solid #ccc;
+  }
+  .qr-wrap img {
+    width: 100%;
+    height: 100%;
+  }
+  .tagline {
+    font-size: 7pt;
+    color: #6b6b6b;
+    margin-top: 0.08in;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .info {
+    margin-left: 0.15in;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.1in;
+  }
+  .header {
+    margin-bottom: 0.15in;
+  }
+  .label {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #2f4025;
+    line-height: 1.1;
+    text-align: center;
+    margin-bottom: 0.04in;
+  }
+  .scientific {
+    font-size: 6pt;
+    font-style: italic;
+    color: #6b6b6b;
+    margin-top: 0;
+    padding-bottom: 1pt;
+    text-align: center;
+  }
+  .details {
+    font-size: 6pt;
+    color: #444;
+    line-height: 1.5;
+  }
+  .details span {
+    font-size: 6pt;
+    font-weight: bold;
+    color: #2f4025;
+    padding-top:1pt;
+  }
+</style>
+</head>
+<body>
+  <div class="qr-column">
+    <div class="qr-wrap">
+      <img src="{{ qr_path }}">
+    </div>
+    <div class="tagline">Scan for details</div>
+  </div>
+  <div class="info">
+    <div class="header">
+      <div class="label">{{ label }}</div>
+      {% if scientific_name %}<div class="scientific">{{ scientific_name }}</div>{% endif %}
+    </div>
+    <div class="details">
+      {% if light_needs %}<span>Light:</span> {{ light_needs }}<br>{% endif %}
+      {% if watering_frequency %}<span>Water:</span> {{ watering_frequency }}<br>{% endif %}
+    </div>
+  </div>
+</body>
+</html>

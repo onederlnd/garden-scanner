@@ -1,0 +1,25 @@
+# app/agents/christenhusz.py
+
+christenhusz = [
+    "Onion",
+    "Potato",
+    "Garlic",
+    "Tomato",
+    "Bean",
+    "Swiss Chard",
+    "Beets",
+    "Spinach",
+    "Radish",
+    "Scallions",
+    "Nasturtium",
+    "Micro Greens",
+    "Leek",
+    "Chives",
+    "Rosemary",
+    "Cilantro",
+    "Lavender",
+    "Parsley",
+    "Mints",
+    "Strawberries",
+    "Raspberries",
+]

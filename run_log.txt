@@ -1,0 +1,149 @@
+INFO:root:SKIP: duplicate - Zinnia
+INFO:root:SKIP: duplicate - Pansy
+INFO:root:SKIP: duplicate - Cosmos
+INFO:root:SKIP: duplicate - Sunflower
+INFO:root:SKIP: duplicate - Nasturtium
+INFO:root:SKIP: duplicate - Impatiens
+INFO:root:SKIP: duplicate - Alyssum
+INFO:root:SKIP: duplicate - Bachelor's Button
+WARNING:root:SKIP: rejected after retry - Four O'Clock
+WARNING:root:SKIP: retry failed - Verbena
+INFO:root:SKIP: duplicate - Ageratum
+INFO:root:SKIP: duplicate - Celosia
+WARNING:root:SKIP: rejected after retry - Gazania
+INFO:root:SKIP: duplicate - Lobelia
+INFO:root:SKIP: duplicate - Portulaca
+WARNING:root:SKIP: research failed - Strawflower
+INFO:root:SKIP: duplicate - Vinca
+INFO:root:SKIP: duplicate - Zonal Geranium
+INFO:root:SKIP: duplicate - Peony
+INFO:root:SKIP: duplicate - Iris
+INFO:root:SKIP: duplicate - Daylily
+INFO:root:SKIP: duplicate - Hosta
+INFO:root:SKIP: duplicate - Coreopsis
+INFO:root:SKIP: duplicate - Yarrow
+INFO:root:SKIP: duplicate - Bee Balm
+INFO:root:SKIP: duplicate - Aster
+INFO:root:SKIP: duplicate - Chrysanthemum
+INFO:root:SKIP: duplicate - Phlox
+WARNING:root:SKIP: rejected after retry - Columbine
+INFO:root:SKIP: duplicate - Delphinium
+WARNING:root:SKIP: rejected after retry - Foxglove
+WARNING:root:SKIP: rejected after retry - Hollyhock
+INFO:root:SKIP: duplicate - Hibiscus
+INFO:root:SKIP: duplicate - Rudbeckia
+INFO:root:SKIP: duplicate - Sedum
+INFO:root:SKIP: duplicate - Salvia Perennial
+INFO:root:SKIP: duplicate - Catmint
+INFO:root:SKIP: duplicate - Lavender
+INFO:root:SKIP: duplicate - Russian Sage
+INFO:root:SKIP: duplicate - Astilbe
+WARNING:root:SKIP: rejected after retry - Coral Bells
+INFO:root:SKIP: duplicate - Veronica
+INFO:root:SKIP: duplicate - Penstemon
+WARNING:root:SKIP: rejected after retry - Baby's Breath
+INFO:root:SKIP: duplicate - Anemone
+INFO:root:SKIP: duplicate - Gerbera Daisy
+INFO:root:SKIP: duplicate - English Daisy
+INFO:root:SKIP: duplicate - Carnation
+INFO:root:SKIP: duplicate - Balloon Flower
+INFO:root:SKIP: duplicate - Globe Thistle
+INFO:root:SKIP: duplicate - Cardinal Flower
+WARNING:root:SKIP: rejected after retry - Joe Pye Weed
+INFO:root:SKIP: duplicate - Lungwort
+INFO:root:SKIP: duplicate - Primrose
+INFO:root:SKIP: duplicate - Evening Primrose
+INFO:root:SKIP: duplicate - Blanket Flower
+INFO:root:SKIP: duplicate - Threadleaf Coreopsis
+INFO:root:SKIP: duplicate - False Indigo
+WARNING:root:SKIP: retry failed - Rodgersia
+INFO:root:SKIP: duplicate - Epimedium
+INFO:root:SKIP: duplicate - Rose
+INFO:root:SKIP: duplicate - Shrub Rose
+WARNING:root:SKIP: rejected after retry - Hybrid Tea Rose
+INFO:root:SKIP: duplicate - Floribunda Rose
+INFO:root:SKIP: duplicate - Rugosa Rose
+INFO:root:SKIP: duplicate - Daffodil
+WARNING:root:SKIP: rejected after retry - Hyacinth
+INFO:root:SKIP: duplicate - Gladiolus
+INFO:root:SKIP: duplicate - Dahlia
+WARNING:root:SKIP: retry validation failed - Ranunculus
+INFO:root:SKIP: duplicate - Lily
+INFO:root:SKIP: duplicate - Asiatic Lily
+INFO:root:SKIP: duplicate - Oriental Lily
+INFO:root:SKIP: duplicate - Calla Lily
+INFO:root:SKIP: duplicate - Freesia
+WARNING:root:SKIP: retry failed - Allium
+INFO:root:SKIP: duplicate - Snowdrop
+INFO:root:SKIP: duplicate - Grape Hyacinth
+INFO:root:SKIP: duplicate - Iris Bulb
+INFO:root:SKIP: duplicate - Canna Lily
+INFO:root:SKIP: duplicate - Begonia Tuberous
+INFO:root:SKIP: duplicate - Caladium
+WARNING:root:SKIP: retry failed - Crocosmia
+INFO:root:SKIP: duplicate - Fritillaria
+INFO:root:SKIP: duplicate - Windflower
+WARNING:root:SKIP: retry failed - Winter Aconite
+INFO:root:SKIP: duplicate - Cyclamen
+INFO:root:SKIP: duplicate - Autumn Crocus
+INFO:root:SKIP: duplicate - Star of Bethlehem
+INFO:root:SKIP: duplicate - Hydrangea
+INFO:root:SKIP: duplicate - Azalea
+INFO:root:SKIP: duplicate - Camellia
+INFO:root:SKIP: duplicate - Lilac
+INFO:root:SKIP: duplicate - Forsythia
+INFO:root:SKIP: duplicate - Peony Tree
+INFO:root:SKIP: duplicate - Spirea
+WARNING:root:SKIP: rejected after retry - Butterfly Bush
+INFO:root:SKIP: duplicate - Rose of Sharon
+INFO:root:SKIP: duplicate - Mock Orange
+INFO:root:SKIP: duplicate - Beautybush
+INFO:root:SKIP: duplicate - Deutzia
+INFO:root:SKIP: duplicate - Flowering Quince
+INFO:root:SKIP: duplicate - Witch Hazel
+WARNING:root:SKIP: research failed - Daphne
+INFO:root:SKIP: duplicate - Gardenia
+INFO:root:SKIP: duplicate - Oleander
+INFO:root:SKIP: duplicate - Potentilla
+INFO:root:SKIP: duplicate - Kerria
+INFO:root:SKIP: duplicate - Chaenomeles
+INFO:root:SKIP: duplicate - Wisteria
+INFO:root:SKIP: duplicate - Honeysuckle
+INFO:root:SKIP: duplicate - Trumpet Vine
+WARNING:root:SKIP: research failed - Passionflower
+INFO:root:SKIP: duplicate - Black-Eyed Susan Vine
+INFO:root:SKIP: duplicate - Purple Coneflower
+INFO:root:SKIP: duplicate - Butterfly Weed
+INFO:root:SKIP: duplicate - Milkweed
+INFO:root:SKIP: duplicate - Wild Bergamot
+INFO:root:SKIP: duplicate - Black-Eyed Coneflower
+INFO:root:SKIP: duplicate - Goldenrod
+WARNING:root:SKIP: rejected after retry - New England Aster
+INFO:root:SKIP: duplicate - Wild Columbine
+INFO:root:SKIP: validation failed - Prairie Smoke
+INFO:root:SKIP: duplicate - Blazing Star
+INFO:root:SKIP: duplicate - Bloodroot
+INFO:root:SKIP: duplicate - Jack-in-the-Pulpit
+INFO:root:SKIP: validation failed - Virginia Bluebells
+INFO:root:SKIP: duplicate - Spiderwort
+INFO:root:SKIP: duplicate - Ironweed
+INFO:root:SKIP: duplicate - Chamomile
+WARNING:root:SKIP: rejected after retry - Borage
+INFO:root:SKIP: duplicate - Yarrow Herb
+INFO:root:SKIP: duplicate - Echinacea
+INFO:root:SKIP: duplicate - Feverfew
+INFO:root:SKIP: duplicate - Lavender Herb
+INFO:root:SKIP: duplicate - Orchid
+WARNING:root:SKIP: research failed - Bird of Paradise
+INFO:root:SKIP: duplicate - Hibiscus Tropical
+WARNING:root:SKIP: rejected after retry - Bromeliad
+INFO:root:SKIP: duplicate - Heliconia
+INFO:root:SKIP: duplicate - Moss Phlox
+INFO:root:SKIP: duplicate - Sweet Woodruff
+INFO:root:SKIP: duplicate - Ajuga
+INFO:root:SKIP: duplicate - Creeping Thyme
+INFO:root:SKIP: duplicate - Vinca Minor
+INFO:root:SKIP: duplicate - Lily of the Valley
+WARNING:root:SKIP: rejected after retry - Wood Anemone
+WARNING:root:SKIP: research failed - Bergenia
+INFO:root:SKIP: duplicate - Pampas Grass

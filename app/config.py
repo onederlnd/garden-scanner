@@ -14,5 +14,11 @@ class Settings:
     card_qr_offset_y = 50
     qr_box_size = 10
 
+    ollama_url = "http://localhost:11434"
+    draft_model = "llama3.1:8b"
+    review_model = "deepseek-r1:14b"
+
+    request_timeout = 180
+
 
 settings = Settings()

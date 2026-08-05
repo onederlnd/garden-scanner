@@ -9,7 +9,7 @@ app = FastAPI()
 
 app.mount("/static", app=StaticFiles(directory="app/static"), name="static")
 
-for router in routers:
-    app.include_router(router)
+for r in routers:
+    app.include_router(r)
 
 register_admin_routes(app)
